@@ -172,6 +172,7 @@ app.include_router(ai.router)
 
 if __name__ == "__main__":
     import uvicorn
+    import os
     
     print("""
     ╔═══════════════════════════════════════════════╗
@@ -183,10 +184,13 @@ if __name__ == "__main__":
     ╚═══════════════════════════════════════════════╝
     """)
     
+    # Railway e outras plataformas fornecem a porta via variável PORT
+    port = int(os.getenv("PORT", 8000))
+    
     uvicorn.run(
         "main:app",
         host="0.0.0.0",
-        port=8000,
+        port=port,
         reload=settings.DEBUG,
         log_level="info"
     )
