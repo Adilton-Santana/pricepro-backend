@@ -42,6 +42,9 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30  # Token de acesso expira em 30 minutos
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7  # Token de refresh expira em 7 dias
     
+    # Configurações de IA
+    ABACUSAI_API_KEY: Optional[str] = None  # API Key para Abacus.AI LLM
+    
     # Configurações de Rate Limiting
     RATE_LIMIT_REQUESTS: int = 200  # 200 requisições
     RATE_LIMIT_WINDOW: int = 60  # Por minuto (60 segundos)

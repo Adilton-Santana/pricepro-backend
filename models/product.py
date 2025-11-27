@@ -90,6 +90,7 @@ class Product(Base):
     
     # Relacionamentos
     owner = relationship("User", back_populates="products")
+    ai_suggestions = relationship("AISuggestion", back_populates="product", cascade="all, delete-orphan")
     
     def __repr__(self):
         return f"<Product(id={self.id}, name='{self.name}', owner_id={self.user_id})>"

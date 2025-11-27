@@ -19,6 +19,10 @@ Tecnologias:
 - JWT: Autenticação
 """
 
+# Carregar variáveis de ambiente ANTES de qualquer import
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -27,7 +31,7 @@ from contextlib import asynccontextmanager
 from core.config import settings
 from database.connection import init_db
 from database.redis_client import redis_client
-from routers import auth, users, products, simulation
+from routers import auth, users, products, simulation, ai
 
 
 @asynccontextmanager
@@ -161,6 +165,7 @@ app.include_router(auth.router)
 app.include_router(users.router)
 app.include_router(products.router)
 app.include_router(simulation.router)
+app.include_router(ai.router)
 
 
 # ============= MAIN =============

@@ -65,6 +65,7 @@ class User(Base):
     
     # Relacionamentos
     products = relationship("Product", back_populates="owner", cascade="all, delete-orphan")
+    ai_suggestions = relationship("AISuggestion", back_populates="user", cascade="all, delete-orphan")
     
     def __repr__(self):
         return f"<User(id={self.id}, email='{self.email}', role='{self.role}')>"
