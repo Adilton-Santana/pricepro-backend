@@ -170,27 +170,41 @@ app.include_router(ai.router)
 
 # ============= MAIN =============
 
-if __name__ == "__main__":
-    import uvicorn
-    import os
-    
-    print("""
-    ╔═══════════════════════════════════════════════╗
-    ║                                               ║
-    ║           🚀 PRICEPRO BACKEND 🚀             ║
-    ║                                               ║
-    ║     Sistema de Precificação Inteligente      ║
-    ║                                               ║
-    ╚═══════════════════════════════════════════════╝
-    """)
-    
-    # Railway e outras plataformas fornecem a porta via variável PORT
-    port = int(os.getenv("PORT", 8000))
-    
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=port,
-        reload=settings.DEBUG,
-        log_level="info"
-    )
+# if __name__ == "__main__":
+#     import uvicorn
+#     import os
+#     
+#     print("""
+#     ╔═══════════════════════════════════════════════╗
+#     ║                                               ║
+#     ║           🚀 PRICEPRO BACKEND 🚀             ║
+#     ║                                               ║
+#     ║     Sistema de Precificação Inteligente      ║
+#     ║                                               ║
+#     ╚═══════════════════════════════════════════════╝
+#     """)
+#     
+#     # Railway e outras plataformas fornecem a porta via variável PORT
+#     port = int(os.getenv("PORT", 8000))
+#     
+#     uvicorn.run(
+#         "main:app",
+#         host="0.0.0.0",
+#         port=port,
+#         reload=settings.DEBUG,
+#         log_level="info"
+#     )
+
+# ============================================
+# NOTA IMPORTANTE PARA PRODUÇÃO:
+# ============================================
+# Em produção (Railway, Render, etc.), o servidor
+# é iniciado via Procfile ou nixpacks.toml usando:
+# uvicorn main:app --host 0.0.0.0 --port $PORT
+# 
+# O bloco "if __name__ == '__main__'" acima foi
+# comentado para evitar conflitos de porta.
+# 
+# Para desenvolvimento local, execute:
+# uvicorn main:app --reload --host 0.0.0.0 --port 8000
+# ============================================
