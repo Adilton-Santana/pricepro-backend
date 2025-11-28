@@ -8,7 +8,7 @@ Define os schemas de validação de dados para operações com produtos:
 - Canal de venda
 """
 
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field
 from typing import Optional, List
 from datetime import datetime
 
@@ -113,7 +113,8 @@ class ProductResponse(ProductBase):
     created_at: datetime
     updated_at: datetime
     
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        orm_mode = True
 
 
 class ProductListResponse(BaseModel):

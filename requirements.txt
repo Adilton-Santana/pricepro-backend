@@ -11,9 +11,9 @@ python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 bcrypt==4.2.0
 
-# Data Validation
-pydantic==2.5.0
-pydantic-settings==2.1.0
+# Data Validation (v1.10 não precisa de Rust)
+pydantic==1.10.13
+pydantic[dotenv]==1.10.13
 
 # File Upload
 python-multipart==0.0.6

@@ -7,7 +7,7 @@ Define os schemas de validação de dados para operações com usuários:
 - Resposta de usuário (sem senha)
 """
 
-from pydantic import BaseModel, EmailStr, Field, ConfigDict
+from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from datetime import datetime
 from models.user import UserRole
@@ -57,7 +57,8 @@ class UserResponse(UserBase):
     created_at: datetime
     updated_at: datetime
     
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        orm_mode = True
 
 
 class UserLogin(BaseModel):

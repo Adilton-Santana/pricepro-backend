@@ -33,7 +33,7 @@ class ProductController:
         product_service = ProductService(db)
         product = product_service.create_product(user_id, product_data)
         
-        return ProductResponse.model_validate(product)
+        return ProductResponse.from_orm(product)
     
     @staticmethod
     def get_product(product_id: int, user_id: int, db: Session) -> ProductResponse:
@@ -60,7 +60,7 @@ class ProductController:
                 detail="Produto não encontrado"
             )
         
-        return ProductResponse.model_validate(product)
+        return ProductResponse.from_orm(product)
     
     @staticmethod
     def list_products(
@@ -101,7 +101,7 @@ class ProductController:
             total=total,
             page=skip // limit + 1,
             page_size=len(products),
-            products=[ProductResponse.model_validate(p) for p in products]
+            products=[ProductResponse.from_orm(p) for p in products]
         )
     
     @staticmethod
@@ -135,7 +135,7 @@ class ProductController:
                 detail="Produto não encontrado"
             )
         
-        return ProductResponse.model_validate(product)
+        return ProductResponse.from_orm(product)
     
     @staticmethod
     def delete_product(product_id: int, user_id: int, db: Session) -> Dict:
