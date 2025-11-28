@@ -24,5 +24,5 @@ COPY . .
 # Expose port (Railway will override with $PORT)
 EXPOSE 8000
 
-# Run the application using start.sh
-CMD ["bash", "start.sh"]
+# Run the application using uvicorn with PORT variable expansion
+CMD sh -c "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"
