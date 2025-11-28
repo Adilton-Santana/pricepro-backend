@@ -8,7 +8,7 @@ Contém todas as configurações da aplicação incluindo:
 - Configurações gerais da aplicação
 """
 
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 from typing import Optional
 import os
 

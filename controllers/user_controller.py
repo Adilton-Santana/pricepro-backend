@@ -41,7 +41,7 @@ class UserController:
                 detail="Usuário não encontrado"
             )
         
-        return UserResponse.from_orm(user)
+        return UserResponse.model_validate(user)
     
     @staticmethod
     def update_user(user_id: int, user_data: UserUpdate, db: Session) -> UserResponse:
@@ -68,7 +68,7 @@ class UserController:
                 detail="Usuário não encontrado"
             )
         
-        return UserResponse.from_orm(user)
+        return UserResponse.model_validate(user)
     
     @staticmethod
     def change_password(user_id: int, password_data: PasswordChange, db: Session) -> Dict:
