@@ -1,4 +1,4 @@
-# Core Framework (FastAPI 0.100.x é compatível com Pydantic 1.x)
+# === CORE FRAMEWORK (COMPATÍVEL COM PYDANTIC 1.X) ===
 fastapi==0.100.1
 uvicorn[standard]==0.23.2
 
