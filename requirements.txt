@@ -1,6 +1,6 @@
-# === CORE FRAMEWORK (COMPATÍVEL COM PYDANTIC 1.X) ===
-fastapi==0.100.1
-uvicorn[standard]==0.23.2
+# === CORE FRAMEWORK ===
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
 
 # Database
 SQLAlchemy==2.0.23
@@ -11,8 +11,9 @@ python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
 bcrypt==4.2.0
 
-# Data Validation (v1.10 não precisa de Rust)
-pydantic==1.10.13
+# Data Validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
 
 # File Upload
 python-multipart==0.0.6
